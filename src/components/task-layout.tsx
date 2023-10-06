@@ -10,8 +10,9 @@ type TaskLayoutProps = {
 export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
   return (
     <Link
-      to={generatePath(PATHS.DAY_TASK, { dayId: day })}
+      to={{ pathname: generatePath(PATHS.DAY_TASK, { dayId: day }) }}
       className="flex flex-col gap-3"
+      state={`daysId=${day}`}
     >
       <h3 className="text-4xl font-semibold font-base">Day {day}</h3>
       <div className="w-[400px] h-[400px]">{children}</div>

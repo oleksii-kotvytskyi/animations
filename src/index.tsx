@@ -6,19 +6,20 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import { TenDays } from "@/pages/routes";
-import { App } from "./pages";
-import { Day } from "./components/day";
+import { Routes } from "@/pages/routes";
+import { List } from "./pages";
+import { Day } from "@/components/day";
+import { Layout } from "@/components/layout";
 
 const container = document.getElementById("root") as HTMLElement;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route index element={<App />} />
-      <Route path="days" element={<App />} />
-      <Route path="" element={<Day />}>
-        {...TenDays}
+    <Route element={<Layout />}>
+      <Route index element={<List />} />
+      <Route path="days" element={<List />} />
+      <Route path={""} element={<Day />}>
+        {...Routes}
       </Route>
     </Route>
   )

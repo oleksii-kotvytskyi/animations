@@ -1,14 +1,13 @@
-import { createElement, useMemo } from "react";
-import { FirstDay, SecondDay } from "./1-10days";
+import { useMemo } from "react";
 
-export const App = () => {
-  const daysToRender = useMemo(() => [FirstDay, SecondDay], []);
+import { Routes } from "./1-10days/routes";
+
+export const List = () => {
+  const daysToRender = useMemo(() => Routes.map((r) => r.props.element), []);
 
   return (
     <div className="p-10 flex gap-10">
-      {daysToRender.map((component, index) =>
-        createElement(component, { key: `Day ${index}` })
-      )}
+      {daysToRender.map((component) => component)}
     </div>
   );
 };

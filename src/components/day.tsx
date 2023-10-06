@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 export const Day = () => {
   return (
-    <div className="p-10">
+    <div className="flex items-center justify-center h-screen w-full">
       <Outlet />
     </div>
   );
