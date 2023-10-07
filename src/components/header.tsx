@@ -81,8 +81,8 @@ export const Header = () => {
 
   return (
     <header className="px-10 py-4">
-      Nav
       <nav>
+        t
         <ul className="flex gap-4">
           <NavItem
             className="mr-5"
