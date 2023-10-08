@@ -5,7 +5,6 @@ import path from "path";
 export default defineConfig({
   build: {
     modulePreload: true,
-    sourcemap: true,
     manifest: true,
   },
   base: "/animations1/",
