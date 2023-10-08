@@ -30,7 +30,6 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
         className={cn(
           "w-[400px] h-[400px] rounded-xl",
           context?.isPageView && "animate-loadPage"
-          // !context && ""
         )}
       >
         {children}
