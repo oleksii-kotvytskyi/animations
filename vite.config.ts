@@ -8,7 +8,7 @@ export default defineConfig({
     sourcemap: true,
     manifest: true,
   },
-  base: "/animations1",
+  base: "/animations1/",
   plugins: [react()],
   resolve: {
     alias: {
