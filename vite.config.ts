@@ -7,7 +7,7 @@ export default defineConfig({
     modulePreload: true,
     manifest: true,
   },
-  base: "/animations1/",
+  base: "/animations1",
   plugins: [react()],
   resolve: {
     alias: {

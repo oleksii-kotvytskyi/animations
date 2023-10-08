@@ -1,8 +1,8 @@
 import { TaskLayout } from "@/components/task-layout";
 
-export const SecondDay = () => {
+export const SecondDay = ({ id }: { id: string }) => {
   return (
-    <TaskLayout day="2">
+    <TaskLayout day={id}>
       <div className="group relative flex flex-col items-center justify-center h-full">
         <div>
           {/* Animation block for change gradients */}

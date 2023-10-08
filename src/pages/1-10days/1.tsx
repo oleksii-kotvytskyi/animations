@@ -1,13 +1,13 @@
 import { TaskLayout } from "@/components/task-layout";
 
-export const FirstDay = () => {
+export const FirstDay = ({ id }: { id: string }) => {
   return (
-    <TaskLayout day="1">
+    <TaskLayout day={id}>
       <div className="group relative flex flex-col items-center justify-center h-full">
         <div>
           {/* Animation block for change gradients */}
-          <div className="absolute inset-0 from-[#43389f] to-[#4dc5c9] bg-gradient-45 opacity-0 group-hover:opacity-[1] transition-opacity duration-500"></div>
-          <div className="absolute inset-0 from-[#4dc5c9] to-[#43389f] bg-gradient-45 opacity-1 group-hover:opacity-0 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 from-[#43389f] to-[#4dc5c9] bg-gradient-45 opacity-0 group-hover:opacity-[1] transition-opacity duration-500 rounded-lg"></div>
+          <div className="absolute inset-0 from-[#4dc5c9] to-[#43389f] bg-gradient-45 opacity-1 group-hover:opacity-0 transition-opacity duration-500 rounded-lg"></div>
           {/* number 100 block */}
           <div className="relative flex">
             <div className="z-[2] h-[40px] w-6 absolute rounded bg-white  top-0 left-[-16px] rotate-[50deg] shadow-[0_0_13px_0_rgba(0,0,0,0.2)]" />

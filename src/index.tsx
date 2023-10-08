@@ -18,7 +18,7 @@ const router = createBrowserRouter(
     <Route element={<Layout />}>
       <Route index element={<List />} />
       <Route path="days" element={<List />} />
-      <Route path={""} element={<Day />}>
+      <Route path={""} element={<Day isPageView />}>
         {...Routes}
       </Route>
     </Route>
