@@ -1,11 +1,12 @@
 import { PATHS } from "@/constants/paths";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useMemo } from "react";
 import { Routes } from "@/pages/routes";
 import {
   LinkProps,
   NavLink,
   generatePath,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -52,27 +53,42 @@ const NavItem = ({ to, text, className, disabled }: NavItemProps) => {
 export const Header = () => {
   const latestDay = Routes.length;
   const { pathname: path } = useLocation();
+  const navigate = useNavigate();
   const dayId = path.length > 5 ? path.split("/days/")?.[1] : null;
 
   let nextNav: null | ReactNode = null;
   let prevNav: null | ReactNode = null;
 
+  const prevDay = useMemo(() => String(Number(dayId) - 1), [dayId]);
+  const nextDay = useMemo(() => String(Number(dayId) + 1), [dayId]);
+
+  const prevPath = generatePath(PATHS.DAY_TASK, { dayId: prevDay });
+  const nextPath = generatePath(PATHS.DAY_TASK, { dayId: nextDay });
+
+  // TODO, add tooltips to nextNav/prevNav components
+  useEffect(() => {
+    const keyDownListener = (event: KeyboardEvent) => {
+      if (event.code === "ArrowRight" && Number(dayId) < latestDay)
+        navigate(nextPath);
+      if (event.code === "ArrowLeft" && Number(dayId) > 1) navigate(prevPath);
+    };
+
+    if (dayId) window.addEventListener("keydown", keyDownListener);
+
+    return () => {
+      if (dayId) window.removeEventListener("keydown", keyDownListener);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dayId]);
+
   if (dayId) {
     prevNav = (
-      <NavItem
-        to={generatePath(PATHS.DAY_TASK, {
-          dayId: String(Number(dayId) - 1),
-        })}
-        text={"Prev"}
-        disabled={Number(dayId) === 1}
-      />
+      <NavItem to={prevPath} text={"Prev"} disabled={Number(dayId) === 1} />
     );
 
     nextNav = (
       <NavItem
-        to={generatePath(PATHS.DAY_TASK, {
-          dayId: String(Number(dayId) + 1),
-        })}
+        to={nextPath}
         text={"Next"}
         disabled={Number(dayId) === latestDay}
       />
