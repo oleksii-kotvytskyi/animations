@@ -22,8 +22,7 @@ const router = createBrowserRouter(
         {...Routes}
       </Route>
     </Route>
-  ),
-  { basename: "/animations" }
+  )
 );
 
 export const RootApplication = () => {
