@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import { Routes } from "@/pages/routes";
-import { List } from "./pages";
+import { List } from "./pages/list";
 import { Day } from "@/components/day";
 import { Layout } from "@/components/layout";
 

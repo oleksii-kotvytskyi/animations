@@ -15,9 +15,18 @@ type NavItemProps = {
   to: LinkProps["to"];
   className?: string;
   disabled?: boolean;
+  isBack?: boolean;
+  isNext?: boolean;
 };
 
-const NavItem = ({ to, text, className, disabled }: NavItemProps) => {
+const NavItem = ({
+  to,
+  text,
+  className,
+  disabled,
+  isBack,
+  isNext,
+}: NavItemProps) => {
   const hoverClass = `
     after:translate-x-[-100%] after:hover:translate-x-0 after:transition-all after:duration-500
     after:opacity-[0] after:hover:opacity-[1]`;
@@ -44,7 +53,18 @@ const NavItem = ({ to, text, className, disabled }: NavItemProps) => {
         }
         to={to}
       >
+        {isBack && (
+          <span className="px-1 bg-slate-500 rounded text-white mr-1 shadow-[0_0_4px_0_rgba(0,0,0,0.5)]">
+            ←
+          </span>
+        )}
+
         {text}
+        {isNext && (
+          <span className="px-1 bg-slate-500 rounded text-white ml-1 shadow-[0_0_4px_0_rgba(0,0,0,0.5)]">
+            →
+          </span>
+        )}
       </NavLink>
     </li>
   );
@@ -65,7 +85,6 @@ export const Header = () => {
   const prevPath = generatePath(PATHS.DAY_TASK, { dayId: prevDay });
   const nextPath = generatePath(PATHS.DAY_TASK, { dayId: nextDay });
 
-  // TODO, add tooltips to nextNav/prevNav components
   useEffect(() => {
     const keyDownListener = (event: KeyboardEvent) => {
       if (event.code === "ArrowRight" && Number(dayId) < latestDay)
@@ -83,12 +102,18 @@ export const Header = () => {
 
   if (dayId) {
     prevNav = (
-      <NavItem to={prevPath} text={"Prev"} disabled={Number(dayId) === 1} />
+      <NavItem
+        to={prevPath}
+        isBack
+        text={"Prev"}
+        disabled={Number(dayId) === 1}
+      />
     );
 
     nextNav = (
       <NavItem
         to={nextPath}
+        isNext
         text={"Next"}
         disabled={Number(dayId) === latestDay}
       />
@@ -96,7 +121,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="px-10 py-4">
+    <header className="px-4 md:px-10 py-4">
       <nav>
         <ul className="flex gap-4">
           <NavItem

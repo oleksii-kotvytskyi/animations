@@ -14,19 +14,20 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
   return (
     <Link
       to={{ pathname: generatePath(PATHS.DAY_TASK, { dayId: day }) }}
-      className={cn("flex flex-col gap-3")}
+      className={cn("flex flex-col gap-3 max-w-[400px]")}
       state={`daysId=${day}`}
+      style={{ zoom: !context ? 0.5 : 1 }}
     >
       <h3
+        style={{ zoom: !context ? 1.5 : 1 }}
         className={cn(
           "absolute text-2xl font-semibold font-base bottom-full left-0",
-          context?.isPageView && "top-0 left-10 text-4xl"
+          context?.isPageView && "top-0 left-4 md:left-10 text-4xl"
         )}
       >
         Day {day}
       </h3>
       <div
-        style={{ zoom: !context ? 0.5 : 1 }}
         className={cn(
           "w-[400px] h-[400px] rounded-xl",
           context?.isPageView && "animate-loadPage"
