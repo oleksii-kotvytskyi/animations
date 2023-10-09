@@ -14,21 +14,25 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
   return (
     <Link
       to={{ pathname: generatePath(PATHS.DAY_TASK, { dayId: day }) }}
+      // scale need for show the same card on different pages with no visual changes, just scale it
+      // depends on context
       className={cn(
-        "flex flex-col gap-3 max-w-[400px]",
-        !context && "scale-50 origin-top-left"
+        "flex flex-col max-w-[100%]",
+        !context && "sm:scale-50 origin-top-left"
       )}
       state={`daysId=${day}`}
     >
+      {/* show day on different screens */}
       <h3
         className={cn(
-          "absolute text-2xl font-semibold font-base left-4 z-10",
+          "absolute text-2xl font-semibold font-base sm:left-4 z-10",
           context?.isPageView && "top-0 left-4 md:left-10 text-4xl",
-          !context && "top-[-40px] scale-150"
+          !context && "top-[-40px] sm:scale-150"
         )}
       >
         Day {day}
       </h3>
+
       <div
         className={cn(
           "w-[400px] h-[400px] rounded-xl",

@@ -4,6 +4,9 @@ import { FirstDay } from "./1";
 import { SecondDay } from "./2";
 import { ThirdDay } from "./3";
 
+// TODO, when tasks will be finished
+const arr = [5, 6, 7, 8, 9, 10];
+
 export const Routes = [
   <Route
     path={generatePath(PATHS.DAY_TASK, { dayId: "1" })}
@@ -21,4 +24,10 @@ export const Routes = [
     path={generatePath(PATHS.DAY_TASK, { dayId: "4" })}
     element={<FirstDay id="4" />}
   />,
+  ...arr.map((el) => (
+    <Route
+      path={generatePath(PATHS.DAY_TASK, { dayId: String(el) })}
+      element={<FirstDay id={String(el)} />}
+    />
+  )),
 ];

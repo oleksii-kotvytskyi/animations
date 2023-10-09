@@ -54,6 +54,12 @@ const config: Config = {
         }
       );
     }),
+    // use as nth-[3n+1], sm:nth-[1], md:nth-[2] etc.
+    plugin(function ({ matchVariant }) {
+      matchVariant("nth", (value) => {
+        return `&:nth-child(${value})`;
+      });
+    }),
   ],
 };
 
