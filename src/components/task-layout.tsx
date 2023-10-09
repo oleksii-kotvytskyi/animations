@@ -14,15 +14,17 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
   return (
     <Link
       to={{ pathname: generatePath(PATHS.DAY_TASK, { dayId: day }) }}
-      className={cn("flex flex-col gap-3 max-w-[400px]")}
+      className={cn(
+        "flex flex-col gap-3 max-w-[400px]",
+        !context && "scale-50 origin-top-left"
+      )}
       state={`daysId=${day}`}
-      style={{ zoom: !context ? 0.5 : 1 }}
     >
       <h3
-        style={{ zoom: !context ? 1.5 : 1 }}
         className={cn(
-          "absolute text-2xl font-semibold font-base bottom-full left-0",
-          context?.isPageView && "top-0 left-4 md:left-10 text-4xl"
+          "absolute text-2xl font-semibold font-base left-4 z-10",
+          context?.isPageView && "top-0 left-4 md:left-10 text-4xl",
+          !context && "top-[-40px] scale-150"
         )}
       >
         Day {day}
