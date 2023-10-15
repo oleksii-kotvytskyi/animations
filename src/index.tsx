@@ -23,7 +23,8 @@ const router = createBrowserRouter(
       </Route>
     </Route>
   ),
-  { basename: "/animations1" }
+  // should be the same name as repo name
+  { basename: "/animations-project" }
 );
 
 export const RootApplication = () => {

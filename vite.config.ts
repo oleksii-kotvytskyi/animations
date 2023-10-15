@@ -7,7 +7,8 @@ export default defineConfig({
     modulePreload: true,
     manifest: true,
   },
-  base: "/animations1",
+  // should be the same name as repo name
+  base: "/animations-project",
   plugins: [react()],
   resolve: {
     alias: {
