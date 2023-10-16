@@ -27,13 +27,7 @@ export const Routes = [
   ...arr.map((el) => (
     <Route
       path={generatePath(PATHS.DAY_TASK, { dayId: String(el) })}
-      element={
-        el % 2 === 0 ? (
-          <ThirdDay id={String(el)} />
-        ) : (
-          <FirstDay id={String(el)} />
-        )
-      }
+      element={<FirstDay key={el} id={String(el)} />}
     />
   )),
 ];
