@@ -9,7 +9,7 @@ export const SecondDay = ({ id }: { id: string }) => {
   return (
     <TaskLayout day={id}>
       <div className="flex justify-center items-center bg-[#3faf82] h-full rounded-xl">
-        <div
+        <button
           className="flex flex-col gap-y-[14px]"
           onClick={(e) => {
             e.preventDefault();
@@ -18,6 +18,7 @@ export const SecondDay = ({ id }: { id: string }) => {
             }
             setIsActive((prev) => !prev);
           }}
+          type="button"
         >
           <div
             className={cn(
@@ -40,7 +41,7 @@ export const SecondDay = ({ id }: { id: string }) => {
               isActive && "animate-burgerBottom"
             )}
           />
-        </div>
+        </button>
       </div>
     </TaskLayout>
   );
