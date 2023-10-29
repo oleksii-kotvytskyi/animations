@@ -1,0 +1,202 @@
+@tailwind utilities;
+
+:root {
+  --pyramidSkyH: 124px;
+  --pyramidH: 60px;
+  --nightColor: #272c34;
+}
+
+@layer utilities {
+  .ground,
+  .sky {
+    animation: brightness 4s ease-in-out infinite;
+  }
+
+  .sun {
+    position: absolute;
+    left: 65px;
+    top: 8px;
+    border-radius: 9999px;
+    height: 32px;
+    width: 32px;
+    transform-origin: 50% 600%;
+    animation: sunDown 4s ease-in-out infinite;
+  }
+
+  .moon {
+    opacity: 0;
+    position: absolute;
+    left: 65px;
+    top: 8px;
+    height: 32px;
+    width: 32px;
+    transform-origin: 50% 600%;
+    /* background-color: #dddada; */
+    animation: moonUp 8s 4s ease-in-out infinite;
+  }
+
+  .moon:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    border-radius: 9999px;
+    box-shadow: inset 0px 4px white, inset 0px 4px 1px 1px white;
+    transform: rotate(-90deg);
+  }
+
+  .pyramid-left {
+    --w: 100px;
+
+    position: absolute;
+    width: var(--w);
+    height: var(--pyramidH);
+    background-color: #f4f4f4;
+    clip-path: polygon(
+      0 var(--pyramidH),
+      calc(var(--w) / 2) 0,
+      calc(var(--w) / 2 + 15px) var(--pyramidH)
+    );
+    position: absolute;
+    left: 40px;
+    top: calc(var(--pyramidSkyH) - var(--pyramidH));
+    animation: leftPyramidAnimation 4s ease-in-out infinite;
+  }
+
+  .pyramid-right {
+    position: absolute;
+    --w: 60px;
+
+    width: var(--w);
+    height: var(--pyramidH);
+    /* 50 is a center of left pyramid part 100/2 */
+    left: calc(40px + 50px);
+    top: calc(var(--pyramidSkyH) - var(--pyramidH));
+    background-color: #dddada;
+    clip-path: polygon(0 0, 15px var(--pyramidH), 100% 100%);
+    animation: rightPyramidAnimation 4s ease-in-out infinite;
+  }
+
+  .shadow {
+    position: absolute;
+    top: var(--pyramidSkyH);
+    height: 80px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform-origin: 50% 0;
+    animation: shadowAnimation 4s ease-in-out infinite;
+  }
+
+  @keyframes shadowAnimation {
+    0% {
+      clip-path: polygon(40px 0, 180px 0px, 150px 0);
+    }
+    50% {
+      clip-path: polygon(40px 0, 140px 40px, 150px 0);
+    }
+    100% {
+      clip-path: polygon(40px 0, -20px 0px, 150px 0);
+    }
+  }
+
+  @keyframes leftPyramidAnimation {
+    0% {
+      filter: brightness(50%);
+      background-color: #dddada;
+    }
+
+    30% {
+      filter: brightness(100%);
+      background-color: #f4f4f4;
+    }
+
+    70% {
+      filter: brightness(100%);
+      background-color: #dddada;
+    }
+
+    100% {
+      filter: brightness(50%);
+      background-color: #dddada;
+    }
+  }
+
+  @keyframes rightPyramidAnimation {
+    0% {
+      filter: brightness(50%);
+      background-color: #dddada;
+    }
+
+    30% {
+      filter: brightness(100%);
+      background-color: #dddada;
+    }
+
+    70% {
+      filter: brightness(100%);
+      background-color: #f4f4f4;
+    }
+
+    100% {
+      filter: brightness(50%);
+      background-color: #dddada;
+    }
+  }
+
+  @keyframes brightness {
+    0% {
+      filter: brightness(50%);
+    }
+
+    30% {
+      filter: brightness(100%);
+    }
+
+    70% {
+      filter: brightness(100%);
+    }
+
+    100% {
+      filter: brightness(50%);
+    }
+  }
+
+  @keyframes sunDown {
+    0% {
+      background: #f57209;
+      transform: rotate(-70deg);
+    }
+    40% {
+      background: #ffef00;
+      transform: rotate(-10deg);
+    }
+    60% {
+      background: #ffef00;
+      transform: rotate(30);
+    }
+    100% {
+      background: #f57209;
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes moonUp {
+    0% {
+      opacity: 1;
+      transform: rotate(-70deg);
+    }
+    40% {
+      opacity: 1;
+      transform: rotate(-10deg);
+    }
+    60% {
+      opacity: 1;
+      transform: rotate(30);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  }
+}

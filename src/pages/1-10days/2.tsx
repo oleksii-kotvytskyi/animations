@@ -10,9 +10,11 @@ export const SecondDay = ({ id }: { id: string }) => {
     <TaskLayout day={id}>
       <div className="flex justify-center items-center bg-[#3faf82] h-full rounded-xl">
         <button
-          className="flex flex-col gap-y-[14px]"
+          className="flex flex-col gap-y-6"
           onClick={(e) => {
+            // enable clicking inside of Link component
             e.preventDefault();
+            // no need to show animation very first time
             if (!isFirstRender.current) {
               isFirstRender.current = true;
             }
@@ -22,21 +24,21 @@ export const SecondDay = ({ id }: { id: string }) => {
         >
           <div
             className={cn(
-              "w-20 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)]",
+              "w-25 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)]",
               isFirstRender.current && !isActive && "animate-burgerTopRev",
               isActive && "animate-burgerTop"
             )}
           />
           <div
             className={cn(
-              "w-20 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)] transition-all duration-700",
+              "w-25 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)] transition-all duration-700",
               isFirstRender.current && !isActive && "scale-1 opacity-100",
               isActive && "scale-0 opacity-0"
             )}
           />
           <div
             className={cn(
-              "w-20 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)]",
+              "w-25 h-2 bg-white rounded-[3px] shadow-[0_2px_13px_1px_rgba(0,0,0,0.3)]",
               isFirstRender.current && !isActive && "animate-burgerBottomRev",
               isActive && "animate-burgerBottom"
             )}

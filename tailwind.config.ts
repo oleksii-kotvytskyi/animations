@@ -2,6 +2,8 @@ import plugin from "tailwindcss/plugin";
 
 import type { Config } from "tailwindcss";
 
+import burgerConfig from "./tailiwind-setup/burger";
+
 const config: Config = {
   content: ["./index.html", "./src/**/*.{ts,tsx}", "./src/*.{ts,tsx}"],
   theme: {
@@ -11,34 +13,11 @@ const config: Config = {
           "0%": { opacity: "0", transform: "scale(0.5)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
-        burgerTopLine: {
-          // 22px = height + space between lines
-          "0%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
-          "50%": { transform: "translate3d(0, 22px, 0)" },
-          "100%": { transform: "translate3d(0, 22px, 0) rotate(45deg)" },
-        },
-        burgerBottomLine: {
-          "0%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
-          "50%": { transform: "translate3d(0, -22px, 0)" },
-          "100%": { transform: "translate3d(0, -22px, 0) rotate(135deg)" },
-        },
-        burgerTopLineRev: {
-          "0%": { transform: "translate3d(0, 22px, 0) rotate(45deg)" },
-          "50%": { transform: "translate3d(0, 22px, 0) rotate(0)" },
-          "100%": { transform: "translate3d(0, 0, 0)" },
-        },
-        burgerBottomLineRev: {
-          "0%": { transform: "translate3d(0, -22px, 0) rotate(135deg)" },
-          "50%": { transform: "translate3d(0, -22px, 0) rotate(0)" },
-          "100%": { transform: "translate3d(0, 0, 0)" },
-        },
+        ...burgerConfig["theme"]?.extend?.keyframes,
       },
       animation: {
         loadPage: "loadPage 0.5s ease-in-out",
-        burgerTop: "burgerTopLine 0.7s forwards",
-        burgerBottom: "burgerBottomLine 0.7s forwards",
-        burgerTopRev: "burgerTopLineRev 0.7s ease-in-out",
-        burgerBottomRev: "burgerBottomLineRev 0.7s ease-in-out",
+        ...burgerConfig["theme"]?.extend?.animation,
       },
       height: {
         25: "100px",
