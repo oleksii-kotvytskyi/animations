@@ -15,24 +15,65 @@
   .sun {
     position: absolute;
     left: 65px;
-    top: 8px;
+    top: 20px;
     border-radius: 9999px;
     height: 32px;
     width: 32px;
-    transform-origin: 50% 600%;
+    transform-origin: 50% 450%;
     animation: sunDown 4s ease-in-out infinite;
+  }
+
+  .stars {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 20px 50px #ffffff, 30px 110px #ffffff, 60px 60px #ffffff,
+      80px 20px #ffffff, 120px 40px #ffffff, 180px 60px #ffffff,
+      150px 90px #ffffff, 200px 130px #ffffff;
+    animation: stars 4s linear infinite;
+    animation-delay: 2s;
+    z-index: 0;
+  }
+
+  @keyframes stars {
+    0% {
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 0.1;
+    }
+
+    40% {
+      opacity: 0.8;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    70% {
+      opacity: 0.3;
+    }
+
+    100% {
+      opacity: 0;
+    }
   }
 
   .moon {
     opacity: 0;
     position: absolute;
     left: 65px;
-    top: 8px;
+    top: 20px;
     height: 32px;
     width: 32px;
     transform-origin: 50% 600%;
-    /* background-color: #dddada; */
-    animation: moonUp 8s 4s ease-in-out infinite;
+    animation: moonUp 4s 2s ease-in-out infinite;
   }
 
   .moon:after {
@@ -104,7 +145,7 @@
   @keyframes leftPyramidAnimation {
     0% {
       filter: brightness(50%);
-      background-color: #dddada;
+      background-color: #f4f4f4;
     }
 
     30% {
@@ -119,7 +160,7 @@
 
     100% {
       filter: brightness(50%);
-      background-color: #dddada;
+      background-color: #f4f4f4;
     }
   }
 

@@ -10,14 +10,11 @@ export const ThirdDay = ({ id }: { id: string }) => {
           <div className="absolute bg-[#7DDFFC] h-[124px] w-full top-0 sky" />
           {/* sand, ground */}
           <div className="absolute bg-yellow-200 h-[56px] w-full bottom-0 ground" />
-          {/* sun */}
           <div className="sun" />
-          {/* moon */}
-          {/* <div className="moon"></div> */}
-
+          <div className="moon"></div>
+          <div className="stars"></div>
           <div className="pyramid-left"></div>
           <div className="pyramid-right"></div>
-          {/* shadow */}
           <div className="shadow"></div>
         </div>
       </div>
