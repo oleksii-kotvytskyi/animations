@@ -1,5 +1,5 @@
 import { TaskLayout } from "@/components/task-layout";
-import "./pyramid.css";
+import "./3-pyramid.scss";
 
 export const ThirdDay = ({ id }: { id: string }) => {
   return (

@@ -1,0 +1,65 @@
+@tailwind utilities;
+
+@mixin test($color: white) {
+  color: $color;
+}
+
+@layer utilities {
+  .circle {
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.2);
+
+    &__big {
+      //   opacity: 0;
+      width: 150px;
+      height: 150px;
+      animation: scale_big 2s ease-in-out infinite alternate;
+    }
+
+    &__medium {
+      //   opacity: 0;
+      width: 100px;
+      height: 100px;
+      animation: scale_medium 2s ease-in-out infinite alternate;
+    }
+
+    &__small {
+      width: 50px;
+      height: 50px;
+      animation: scale_small 2s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes scale_big {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scale_medium {
+    0%,
+    33% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scale_small {
+    0%,
+    66% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
