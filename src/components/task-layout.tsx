@@ -17,7 +17,7 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
       // scale need for show the same card on different pages with no visual changes, just scale it
       // depends on context
       className={cn(
-        "flex flex-col max-w-[100%]",
+        "flex flex-col max-w-full",
         !context && "sm:scale-50 origin-top-left"
       )}
       state={`daysId=${day}`}
@@ -35,7 +35,7 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
 
       <div
         className={cn(
-          "w-[400px] h-[400px] rounded-xl",
+          "w-[400px] h-[400px] rounded-xl max-sm:max-w-full",
           context?.isPageView && "animate-loadPage"
         )}
       >
