@@ -9,6 +9,7 @@
     border-radius: 100%;
     background-color: white;
     box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.2);
+    animation-fill-mode: both;
 
     &__big {
       //   opacity: 0;
@@ -32,7 +33,8 @@
   }
 
   @keyframes scale_big {
-    0% {
+    0%,
+    10% {
       transform: scale(0);
     }
 
@@ -43,7 +45,7 @@
 
   @keyframes scale_medium {
     0%,
-    33% {
+    40% {
       transform: scale(0);
     }
 
@@ -54,7 +56,7 @@
 
   @keyframes scale_small {
     0%,
-    66% {
+    70% {
       transform: scale(0);
     }
 

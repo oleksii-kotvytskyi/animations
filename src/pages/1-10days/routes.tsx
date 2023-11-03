@@ -1,9 +1,9 @@
 import { Route, generatePath } from "react-router-dom";
 import { PATHS } from "@/constants/paths";
-import { FirstDay, SecondDay, ThirdDay, FourthDay } from "./index";
+import { FirstDay, SecondDay, ThirdDay, FourthDay, FifthDay } from "./index";
 
 // TODO, when tasks will be finished
-const arr = [5, 6, 7, 8, 9, 10];
+const arr = [6, 7, 8, 9, 10];
 
 export const Routes = [
   <Route
@@ -21,6 +21,10 @@ export const Routes = [
   <Route
     path={generatePath(PATHS.DAY_TASK, { dayId: "4" })}
     element={<FourthDay id="4" />}
+  />,
+  <Route
+    path={generatePath(PATHS.DAY_TASK, { dayId: "5" })}
+    element={<FifthDay id="5" />}
   />,
   ...arr.map((el) => (
     <Route
