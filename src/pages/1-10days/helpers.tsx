@@ -38,7 +38,7 @@ export const getPrevWeek = () => {
   };
 };
 
-export const useChartData = (date: Date) => {
+export const generateData = (date: Date) => {
   return {
     data: [
       {
