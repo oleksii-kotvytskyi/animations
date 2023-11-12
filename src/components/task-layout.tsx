@@ -1,14 +1,21 @@
 import { PATHS } from "@/constants/paths";
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import { Link, generatePath, useOutletContext } from "react-router-dom";
 
 type TaskLayoutProps = {
   children: ReactNode;
   day: string;
+  style?: CSSProperties;
+  disabled?: boolean;
 };
 
-export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
+export const TaskLayout = ({
+  children,
+  day,
+  style,
+  disabled,
+}: TaskLayoutProps) => {
   const context = useOutletContext<{ isPageView?: boolean } | undefined>();
 
   return (
@@ -17,8 +24,8 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
       // scale need for show the same card on different pages with no visual changes, just scale it
       // depends on context
       className={cn(
-        "flex flex-col max-w-full",
-        !context && "sm:scale-50 origin-top-left"
+        "flex flex-col max-w-full cursor-default",
+        !context && "sm:scale-50 origin-top-left cursor-pointer"
       )}
       state={`daysId=${day}`}
     >
@@ -34,9 +41,11 @@ export const TaskLayout = ({ children, day }: TaskLayoutProps) => {
       </h3>
 
       <div
+        style={style}
         className={cn(
           "w-[400px] h-[400px] rounded-xl max-sm:max-w-full",
-          context?.isPageView && "animate-loadPage"
+          context?.isPageView && "animate-loadPage",
+          disabled && "pointer-events-none"
         )}
       >
         {children}

@@ -38,36 +38,36 @@ export const getPrevWeek = () => {
   };
 };
 
-export const generateData = (date: Date) => {
+export const generateData = (date: Date, items: number) => {
   return {
     data: [
       {
         day: createDayPlusNumber(date, 0),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 1),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 2),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 3),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 4),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 5),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
       {
         day: createDayPlusNumber(date, 6),
-        value: generateValue(),
+        values: Array.from({ length: items }, generateValue),
       },
     ],
   };
@@ -75,4 +75,18 @@ export const generateData = (date: Date) => {
 
 export const createCoordinate = (x: number, y: number) => {
   return `${x},${y}`;
+};
+
+export const colorPerGraph: Record<number, string> = {
+  0: "red",
+  1: "blue",
+  2: "orange",
+  3: "grey",
+};
+
+export const companyPerGraph: Record<number, string> = {
+  0: "Coca-cola",
+  1: "Pepsi",
+  2: "IBM",
+  3: "BMW",
 };
