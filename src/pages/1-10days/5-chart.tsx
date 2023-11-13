@@ -1,6 +1,5 @@
 import { createCoordinate, generateData, colorPerGraph } from "./helpers";
 import { RefObject, useRef } from "react";
-import "./5-grapth.scss";
 
 export const maxX = 290;
 export const maxY = 156;

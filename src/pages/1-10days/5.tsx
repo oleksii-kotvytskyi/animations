@@ -7,7 +7,6 @@ import {
 } from "./helpers";
 import { useMemo, useState } from "react";
 import { Chart, maxX, maxY, columnsNumber } from "./5-chart";
-import "./5-grapth.scss";
 import { cn } from "@/lib/utils";
 import { useOutletContext } from "react-router-dom";
 
