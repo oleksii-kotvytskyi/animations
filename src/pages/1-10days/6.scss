@@ -1,0 +1,46 @@
+@tailwind utilities;
+
+$deviation_1: 6px;
+$deviation_2: 14px;
+
+@mixin circleSetup($deviation: $deviation_1) {
+  left: calc($deviation / -2);
+  top: calc($deviation / -2);
+  width: calc(100% + $deviation);
+  height: calc(100% + $deviation);
+}
+
+@layer utilities {
+  .avatar {
+    .circle_6 {
+      position: absolute;
+      border-radius: 100%;
+      border: 1px solid grey;
+      transition-duration: 1.7s;
+      box-sizing: border-box;
+
+      &_first {
+        border-right-color: transparent;
+        @include circleSetup($deviation_1);
+      }
+
+      &_second {
+        border-left-color: transparent;
+        @include circleSetup($deviation_2);
+      }
+    }
+
+    &:hover {
+      .circle_6_first {
+        transform: rotate(360deg);
+      }
+
+      .circle_6_second {
+        transform: rotate(-360deg);
+      }
+    }
+  }
+
+  .circle_1 {
+  }
+}

@@ -1,9 +1,5 @@
 @tailwind utilities;
 
-@mixin test($color: white) {
-  color: $color;
-}
-
 @layer utilities {
   .circle {
     border-radius: 100%;

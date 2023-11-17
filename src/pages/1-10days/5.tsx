@@ -29,6 +29,7 @@ export const FifthDay = ({ id }: { id: string }) => {
     <TaskLayout
       day={id}
       disabled={!context?.isPageView}
+      // TODO, styles for mobile view
       style={{ zoom: context?.isPageView ? "1.5" : "1" }}
     >
       <div

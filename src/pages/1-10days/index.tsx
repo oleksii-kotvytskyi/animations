@@ -3,3 +3,4 @@ export { SecondDay } from "./2";
 export { ThirdDay } from "./3";
 export { FourthDay } from "./4";
 export { FifthDay } from "./5";
+export { SixthDay } from "./6";
