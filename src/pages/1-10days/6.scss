@@ -1,7 +1,7 @@
 @tailwind utilities;
 
-$deviation_1: 6px;
-$deviation_2: 14px;
+$deviation_1: 12px;
+$deviation_2: 6px;
 
 @mixin circleSetup($deviation: $deviation_1) {
   left: calc($deviation / -2);
@@ -15,7 +15,7 @@ $deviation_2: 14px;
     .circle_6 {
       position: absolute;
       border-radius: 100%;
-      border: 1px solid grey;
+      border: 1px solid theme("colors.amber.900");
       transition-duration: 1.7s;
       box-sizing: border-box;
 
